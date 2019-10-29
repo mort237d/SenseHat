@@ -1,5 +1,5 @@
 from sense_hat import SenseHat
-import time
+from time import sleep
 
 sense = SenseHat()
 
@@ -35,6 +35,8 @@ y = 3
 draw_screen()
 sense.set_pixel(x, y, yellow)
 
+sleeptime = 0.5
+
 while True:
     orientation = sense.get_orientation()
     pitch = orientation['pitch']
@@ -56,3 +58,5 @@ while True:
     if moved:
         draw_screen()
         sense.set_pixel(x, y, yellow)
+    sleep(sleeptime)
+    sleeptime = sleeptime * 0.9
